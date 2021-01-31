@@ -10,7 +10,8 @@ WORKDIR /opt/urbit
 
 COPY linux64.tgz .
 
-RUN tar zxvf ./linux64.tgz --strip=1
+RUN tar zxvf ./linux64.tgz --strip=1 && \
+    rm linux64.tgz
 
 ENTRYPOINT ["./urbit"]
 CMD ["-c", "comet"]
